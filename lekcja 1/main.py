@@ -4,7 +4,9 @@ import random
 
 app = Flask(__name__)
 
-
+@app.route("/")
+def index():
+    return przywitanie()
 
 @app.route("/przywitanie")
 def przywitanie():
