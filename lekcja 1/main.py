@@ -11,7 +11,31 @@ def index():
 @app.route("/przywitanie")
 def przywitanie():
     return """<h1>Hello</h1>
+    <a href="/rzut">Rzuć monetą!</a>
     <a href="/ciekawostka"> ciekawostka!</a>"""
+    
+
+@app.route("/rzut")
+def rzutmoneta():
+    rzutmoneta = ["orzeł","reszka"]
+    wynik = random.choice(rzutmoneta)
+    
+    if wynik == 'orzeł':
+        img = '<img src="https://pressmania.pl/wp-content/uploads/2020/12/moneta-2-zl.jpg" width= "500">'
+    else:
+        img = '<img src="https://cdn.galleries.smcloud.net/t/galleries/gf-zggJ-gtQ7-m7EP_rzut-moneta-mniej-sprawiedliwy-niz-sadzono-664x442.jpg" width= "500">'
+    
+    return f"""
+    <p>Wypadło:{wynik}</p>
+    {img}
+    
+    <a href="/przywitanie"> strona głowna!</a>"""
+        
+        
+
+    
+
+
 
 @app.route("/ciekawostka")
 def ciekawostka():
